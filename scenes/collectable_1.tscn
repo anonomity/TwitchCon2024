@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bilqffykce8wm"]
+
+[ext_resource type="Script" path="res://scripts/collectable_1.gd" id="1_adv8w"]
+[ext_resource type="Texture2D" uid="uid://ctylihyemntru" path="res://data/mask_text.tres" id="1_uq36h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tddir"]
+size = Vector2(20, 8)
+
+[node name="collectable_1" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_adv8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uq36h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tddir")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

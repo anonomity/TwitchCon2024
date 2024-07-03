@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfuvfjhoic2ji"]
+
+[ext_resource type="Texture2D" uid="uid://dsbkoircmt24b" path="res://assets/tileset.png" id="1_3hul0"]
+[ext_resource type="Script" path="res://scenes/autograph.gd" id="1_n1tcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwjiu"]
+atlas = ExtResource("1_3hul0")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi7jh"]
+size = Vector2(20, 13)
+
+[node name="autograph" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_n1tcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gwjiu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qi7jh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

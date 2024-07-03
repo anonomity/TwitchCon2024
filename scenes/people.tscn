@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://by4ws83uvflug"]
+
+[ext_resource type="Texture2D" uid="uid://dsbkoircmt24b" path="res://assets/tileset.png" id="1_7rp8n"]
+[ext_resource type="Script" path="res://scripts/people.gd" id="1_h14y8"]
+[ext_resource type="AudioStream" uid="uid://d0cfvj155u3bb" path="res://assets/sneeze.wav" id="3_41jce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mypnc"]
+atlas = ExtResource("1_7rp8n")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3pa5"]
+radius = 5.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xp5xa"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.36
+direction = Vector3(0, 0, 0)
+gravity = Vector3(100, 0, 0)
+color = Color(0.413907, 1, 0.290329, 1)
+
+[node name="people" type="CharacterBody2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_h14y8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mypnc")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p3pa5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="sneeze" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_xp5xa")
+one_shot = true
+explosiveness = 0.5
+
+[node name="sneeze_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="sneeze_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_41jce")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="sneeze_timer" to="." method="_on_sneeze_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkc0hua73a6k5"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_yh88i"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_yh88i")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.5
+offset_right = 221.5
+offset_bottom = 27.0
+grow_horizontal = 2
