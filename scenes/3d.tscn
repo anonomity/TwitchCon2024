@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=4 uid="uid://ueu0ywp4tjio"]
+
+[ext_resource type="Script" path="res://scripts/3d.gd" id="1_fe11q"]
+[ext_resource type="Texture2D" uid="uid://driwnm6y4sxeq" path="res://assets/cube_uv.png" id="2_umxbi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vf6d"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("2_umxbi")
+roughness = 0.4
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tahwl"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/v/+/wAAAAD+/wAAAAAAAP7//v///wAA/v8AAP//AAAAAP7/AAAAAAAAAAAAAAAAAAD+////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bqab1"]
+resource_name = "cube_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2),
+"attribute_data": PackedByteArray("INUywCDVMsAg1TLAj6oywI+qMsCPqjLASdX6n0nV+p9J1fqfqqr+n6qq/p+qqv6fQtX/30LV/9///wfAsaof4Nx/8r+xqh/gU9X//0/V/3/0/wegsar//waA/5+xqv9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQAUAA4AAQAHABQACgATAAYACgAXABMAFQAMABIAFQAPAAwAEAAJAAMAEAAWAAkABQAIAAIABQALAAgAEQAAAA0AEQAEAAAA"),
+"material": SubResource("StandardMaterial3D_8vf6d"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00065, 2, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/v/+/wAA///+//7/AADY//7//v8AAFPV/v8AAAAA/7/+/wAAAAD///7/AAAAAFTV/v/+/////b/+//7////y//7//v///1LV/v8AAP///7/+/wAA///7v/7/AAD//1PVAAD+/wAAPdUAAP7/AAD//wAA/v8AAPL/AAAAAAAASNUAAAAAAAD/vwAAAAAAAP//AAD+////SNUAAP7/////vwAA/v////P/AAAAAP//VNUAAAAA////vwAAAAD///2/7r8PwBTAKgCrKqkqPgB7gP+//7+qKqoq/////wbADgCtKqkqAwD9f/////+rKqkqONVi1d+/H8AGwA4ARdVb1X4A/YDuvw/ARdVb1f////8LgPm/VNVU1T4Ae4D/////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tahwl")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ivgrk"]
+radius = 0.1
+height = 3.183
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgkxd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dln2x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icge4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4ina"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosri"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt2k0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nifwy"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522629, 0)
+script = ExtResource("1_fe11q")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.990173, -6.11291e-09, 0.139847, -0.139847, -4.32818e-08, 0.990173, 0, -1, -4.37114e-08, 3.92024, 5.29271, 2.58361)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0791203, 0.996865, 0, -0.996865, 0.0791203, 0, 3.6225, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.133992, 0.990947, 0.00834071, 0.00142526, 0.00860929, -0.999962, -0.990981, -0.133975, -0.00256594, -0.0381212, -0.678847, -0.00249195)
+mesh = SubResource("ArrayMesh_bqab1")
+skeleton = NodePath("")
+
+[node name="sickness" type="Node3D" parent="Cube"]
+transform = Transform3D(1, 4.47035e-08, 1.39698e-09, -4.47035e-08, 1, -4.07454e-09, 2.32831e-10, 1.5134e-09, 1, 0.0751069, -0.555459, -0.00467527)
+
+[node name="1" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 9.0804e-09, 0, 1, -1.21945e-08, -6.98492e-10, 3.21888e-08, 1, 0.691902, 0.775046, -0.664913)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_mgkxd")
+
+[node name="2" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 9.54606e-09, 0, 1, -1.11759e-08, -6.98492e-10, 3.21888e-08, 1, 0.691562, 0.77299, -0.426073)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_dln2x")
+
+[node name="3" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 9.77889e-09, 0, 1, -1.01863e-08, -6.98492e-10, 3.21888e-08, 1, 0.691211, 0.770871, -0.179961)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_icge4")
+
+[node name="4" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 1.02445e-08, 0, 1, -9.19681e-09, -6.98492e-10, 3.21888e-08, 1, 0.690864, 0.768772, 0.0638363)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_a4ina")
+
+[node name="5" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 1.04774e-08, 0, 1, -8.17818e-09, -6.98492e-10, 3.21888e-08, 1, 0.690515, 0.766667, 0.308371)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_wosri")
+
+[node name="6" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 1.07102e-08, 0, 1, -7.18865e-09, -6.98492e-10, 3.21888e-08, 1, 0.690187, 0.764682, 0.538823)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bt2k0")
+
+[node name="7" type="MeshInstance3D" parent="Cube/sickness"]
+transform = Transform3D(1, 0, 1.0943e-08, 0, 1, -6.22822e-09, -6.98492e-10, 3.21888e-08, 1, 0.689839, 0.762583, 0.782589)
+mesh = SubResource("CapsuleMesh_ivgrk")
+surface_material_override/0 = SubResource("StandardMaterial3D_nifwy")

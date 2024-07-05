@@ -11,10 +11,16 @@ const PROJECTILE = preload("res://data/projectile.tscn")
 @onready var sneeze_sound: AudioStreamPlayer = $sneeze_sound
 
 var has_autograph = false
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
+const PLAYER_1 = preload("res://assets/player_1.tres")
+const PLAYER_2 = preload("res://assets/player_2.tres")
+const PLAYER_3 = preload("res://assets/player_3.tres")
+var players_arr = [PLAYER_1,PLAYER_2,PLAYER_3]
 func _ready() -> void:
 	var spd = randi_range(60,90)
 	speed = spd
+	sprite_2d.texture= players_arr.pick_random()
 
 func _physics_process(delta: float) -> void:
 	

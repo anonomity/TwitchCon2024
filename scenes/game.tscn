@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cch53jhbyrdk8"]
+
+[ext_resource type="PackedScene" uid="uid://caym0lep415gs" path="res://scenes/level.tscn" id="1_h4s57"]
+[ext_resource type="PackedScene" uid="uid://ueu0ywp4tjio" path="res://scenes/3d.tscn" id="2_hgci6"]
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="2dViewport" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="2dViewport"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="2dViewport/SubViewport" instance=ExtResource("1_h4s57")]
+
+[node name="3dViewport" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="3dViewport"]
+transparent_bg = true
+handle_input_locally = false
+texture_mipmap_bias = -2.0
+canvas_item_default_texture_filter = 3
+render_target_update_mode = 4
+
+[node name="Node3D" parent="3dViewport/SubViewport" instance=ExtResource("2_hgci6")]

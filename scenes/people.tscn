@@ -1,12 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://by4ws83uvflug"]
+[gd_scene load_steps=6 format=3 uid="uid://by4ws83uvflug"]
 
-[ext_resource type="Texture2D" uid="uid://dsbkoircmt24b" path="res://assets/tileset.png" id="1_7rp8n"]
 [ext_resource type="Script" path="res://scripts/people.gd" id="1_h14y8"]
+[ext_resource type="Texture2D" uid="uid://bcgrcdnicm823" path="res://assets/player_3.tres" id="2_3reeh"]
 [ext_resource type="AudioStream" uid="uid://d0cfvj155u3bb" path="res://assets/sneeze.wav" id="3_41jce"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mypnc"]
-atlas = ExtResource("1_7rp8n")
-region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3pa5"]
 radius = 5.0
@@ -25,7 +21,7 @@ collision_mask = 9
 script = ExtResource("1_h14y8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_mypnc")
+texture = ExtResource("2_3reeh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

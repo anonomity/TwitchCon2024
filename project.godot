@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="game mc gameface"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 EventBus="*res://scripts/EventBus.gd"
 AudioBus="*res://scripts/AudioBus.gd"
+WaveInfo="*res://scripts/WaveInfo.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
