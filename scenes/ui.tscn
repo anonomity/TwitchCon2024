@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_yh88i"]
 
 [node name="ui" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_yh88i")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

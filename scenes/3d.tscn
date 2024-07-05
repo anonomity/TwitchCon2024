@@ -1,7 +1,47 @@
-[gd_scene load_steps=14 format=4 uid="uid://ueu0ywp4tjio"]
+[gd_scene load_steps=18 format=4 uid="uid://ueu0ywp4tjio"]
 
 [ext_resource type="Script" path="res://scripts/3d.gd" id="1_fe11q"]
+[ext_resource type="Texture2D" uid="uid://db77cfonl2ex5" path="res://assets/cube_uv2.png" id="2_dvfg4"]
 [ext_resource type="Texture2D" uid="uid://driwnm6y4sxeq" path="res://assets/cube_uv.png" id="2_umxbi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh6i4"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("2_dvfg4")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gfyvq"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/v/+/wAAAAD+/wAAAAAAAP7//v///wAA/v8AAP//AAAAAP7/AAAAAAAAAAAAAAAAAAD+////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mgpkp"]
+resource_name = "cube2_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2.00001, 2.00001, 2),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//5//v/+f/7//3/9//1//v/8f/3//X/+//5////+fAAD/3/8//1////8f/z//XwAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQAUAA4AAQAHABQACgATAAYACgAXABMAFQAMABIAFQAPAAwAEAAJAAMAEAAWAAkABQAIAAIABQALAAgAEQAAAA0AEQAEAAAA"),
+"material": SubResource("StandardMaterial3D_vh6i4"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/v/+/wAA///+//7/AAD///7//v8AAFTV/v8AAAAA/7/+/wAAAAD///7/AAAAAFTV/v/+/////7/+//7///////7//v///1TV/v8AAP///7/+/wAA////v/7/AAD//1TVAAD+/wAAVNUAAP7/AAD//wAA/v8AAP//AAAAAAAAVNUAAAAAAAD/vwAAAAAAAP//AAD+////VNUAAP7/////vwAA/v//////AAAAAP//VNUAAAAA////vwAAAAD///+//7//v/9//7+qKqoqAAD/f/+//7+qKqoq//////9//7+qKqoqAAD/f/////+qKqoqVNVU1f+//7//f/+/VNVU1QAA/3//v/+/VNVU1f//////f/+/VNVU1QAA/3//////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gfyvq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vf6d"]
 resource_name = "Material"
@@ -65,19 +105,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522629, 0)
 script = ExtResource("1_fe11q")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.990173, -6.11291e-09, 0.139847, -0.139847, -4.32818e-08, 0.990173, 0, -1, -4.37114e-08, 3.92024, 5.29271, 2.58361)
+transform = Transform3D(0.990173, -6.1129e-09, 0.139847, -0.139847, -4.32818e-08, 0.990173, 0, -1, -4.37113e-08, 7.92024, 5.29271, 3.58361)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0791203, 0.996865, 0, -0.996865, 0.0791203, 0, 3.6225, 0)
 
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0454283, 0.337712, -0.0882667, 0.0126915, -0.0873542, -0.340752, -0.348825, -0.0471592, -0.000902631, -0.0381212, -0.678847, -0.00249195)
+mesh = SubResource("ArrayMesh_mgpkp")
+skeleton = NodePath("")
+
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.133992, 0.990947, 0.00834071, 0.00142526, 0.00860929, -0.999962, -0.990981, -0.133975, -0.00256594, -0.0381212, -0.678847, -0.00249195)
+transform = Transform3D(-0.0984841, 0.728346, 0.00612646, 0.00104689, 0.00632375, -0.734972, -0.728371, -0.0984717, -0.00188474, -0.0381212, -0.678847, -0.00249195)
 mesh = SubResource("ArrayMesh_bqab1")
 skeleton = NodePath("")
 
 [node name="sickness" type="Node3D" parent="Cube"]
-transform = Transform3D(1, 4.47035e-08, 1.39698e-09, -4.47035e-08, 1, -4.07454e-09, 2.32831e-10, 1.5134e-09, 1, 0.0751069, -0.555459, -0.00467527)
+transform = Transform3D(1, 5.96046e-08, 2.09548e-09, -5.96046e-08, 1, -5.84987e-09, 4.65661e-10, 2.50293e-09, 1, 0.108502, -0.802433, -0.00675404)
 
 [node name="1" type="MeshInstance3D" parent="Cube/sickness"]
 transform = Transform3D(1, 0, 9.0804e-09, 0, 1, -1.21945e-08, -6.98492e-10, 3.21888e-08, 1, 0.691902, 0.775046, -0.664913)

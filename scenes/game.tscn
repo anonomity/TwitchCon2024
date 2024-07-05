@@ -37,12 +37,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="3dViewport"]
 transparent_bg = true
 handle_input_locally = false
 texture_mipmap_bias = -2.0
 canvas_item_default_texture_filter = 3
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Node3D" parent="3dViewport/SubViewport" instance=ExtResource("2_hgci6")]

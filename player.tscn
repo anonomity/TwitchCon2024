@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://5ovohyd74bvr"]
+[gd_scene load_steps=8 format=3 uid="uid://5ovohyd74bvr"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_j6op2"]
 [ext_resource type="Texture2D" uid="uid://de8t8lfmemsgw" path="res://assets/icon.png" id="2_oywva"]
+[ext_resource type="AudioStream" uid="uid://dimsuxpapf5qr" path="res://assets/pencil-scribbling-200560.wav" id="3_evn45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ty2"]
 size = Vector2(14, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmhwu"]
 radius = 11.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc24q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lybp"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="PlayerDotTSCN" type="CharacterBody2D"]
 script = ExtResource("1_j6op2")
@@ -28,3 +35,32 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_qmhwu")
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="signing_progress" type="ProgressBar" parent="ui/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.5
+offset_top = -27.0
+offset_right = 136.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_rc24q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1lybp")
+show_percentage = false
+
+[node name="signing_audio" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("3_evn45")

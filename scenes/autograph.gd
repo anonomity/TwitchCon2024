@@ -24,6 +24,7 @@ func _on_timer_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if can_grab:
 		body.has_autograph = true
+		body.go_to_spawn()
 		sprite_2d.scale = Vector2(0.5,0.5)
 		con_member = body
 		can_grab = false
